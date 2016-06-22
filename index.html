@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>Johm's Web VR crap</title>
+	<script src="assets/js/aframe.min.js"></script>
+	<script src="assets/js/aframe-extras.min.js"></script>
+	<script src="assets/js/spawnerstatic.js"></script>
+	<script src="assets/js/projectile.js"></script>
+	<script src="assets/js/click-listener.js"></script>
+	<script src="assets/js/hit-listener.js"></script>
+	<script src="assets/js/collider.js"></script>
+	<script type="text/javascript">var canFire = true; var canHit = true; var targets = [];</script>
+</head>
+<body>
+	
+<a-scene canvas="height: 50; width:50;">
+	<a-assets>
+		<a-mixin id="ball" geometry="primitive: sphere; radius: .05; translate: 0 .5 0;" material="color: #FFFF00" rotation="90 0 0"
+											 projectile collider="target: .target"></a-mixin>
+
+	</a-assets>
+
+
+	<!-- Target -->
+		<a-entity class="target" id="one"  geometry="primitive: circle; radius:1" material="side: double shader: standard; side: double; metalness: 0.1; color:#FF0000;" position="1, 2.1, 0" rotation="25 0 0" hit-listener="pointValue: 1"></a-entity>
+		<a-entity class="target" id="two"  geometry="primitive: circle; radius:.8" material="side: double shader: standard; side: double; metalness: 0.1; color:#FFFFFF;" position="1, 2.1, -.01" rotation="25 0 0" hit-listener="pointValue: 2"></a-entity>
+		<a-entity class="target" id="three"  geometry="primitive: circle; radius:.6" material="side: double shader: standard; side: double; metalness: 0.1; color:#FF0000;" position="1, 2.1, -.02" rotation="25 0 0" hit-listener="pointValue: 3"></a-entity>
+		<a-entity class="target" id="four"  geometry="primitive: circle; radius:.4" material="side: double shader: standard; side: double; metalness: 0.1; color:#FFFFFF;" position="1, 2.1, -.03" rotation="25 0 0" hit-listener="pointValue: 4"></a-entity>
+		<a-entity class="target" id="five"  geometry="primitive: circle; radius:.22" material="side: double shader: standard; side: double; metalness: 0.1; color:#FF0000;" position="1, 2.1, -.04" rotation="25 0 0" hit-listener="pointValue: 5"></a-entity>
+
+
+	<!-- Table -->
+		<a-entity static-body geometry="primitive: box; height:.2; width:6; depth:4;" position="1, 1, 0" rotation="0 90 0"
+													material="shader: standard; side: double; metalness: 0.1; color:#663300"></a-entity>
+		<a-entity static-body geometry="primitive: box; height:.6; width:.1; depth:.1" position="2.8, .6, 2.7" rotation="0 90 0"
+													material="shader: standard; side: double; metalness: 0.1; color:#663300"></a-entity>
+		<a-entity static-body geometry="primitive: box; height:.6; width:.1; depth:.1" position="-.8, .6, 2.7" rotation="0 90 0"
+													material="shader: standard; side: double; metalness: 0.1; color:#663300"></a-entity>
+		<a-entity static-body geometry="primitive: box; height:.6; width:.1; depth:.1" position="-.8, .6, -2.7" rotation="0 90 0"
+													material="shader: standard; side: double; metalness: 0.1; color:#663300"></a-entity>
+		<a-entity static-body geometry="primitive: box; height:.6; width:.1; depth:.1" position="2.8, .6, -2.7" rotation="0 90 0"
+												material="shader: standard; side: double; metalness: 0.1; color:#663300"></a-entity>
+
+
+	<!-- Floor -->
+		<a-entity static-body geometry="primitive: plane; height: 110; width: 70;" position="0 0 0" rotation="-90 0 0" 
+		material="shader: flat; color:#2233FF;"></a-entity>
+
+	<!-- CAMERA AND CURSOR W/EFFECTS -->
+		<a-camera id="camera" kinematic-body universal-controls jump-ability="enableDoubleJump: true; distance: 2.8;" 
+                                             position="0 4 -8"
+                                             rotation="0 180 0"
+                                             spawner="mixin: ball; on: click;" click-listener>
+	  	<a-entity id="cursor" cursor="maxDistance: 5;" geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01" material="color: #1a608f" position="0 0 -1" rotation="0 0 0">
+	  	</a-entity>
+  	</a-camera>
+	  
+	
+ 	<a-sky color="#666"></a-sky>
+
+
+</a-scene>
+</body>
+</html>
