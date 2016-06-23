@@ -7,12 +7,12 @@ AFRAME.registerComponent('hit-listener', {
   	var self = this;
     var el = this.el;
     window.addEventListener('hit', function (event) {
-    	console.log(event.data);
     	if(window.canHit){
     		window.canHit = false;
     		setTimeout(function (){
-	    		console.log('points: '+self.data.pointValue);
+	    		window.pointHolder = window.pointHolder + parseInt(event.detail[1].pointValue);
 	    		window.canHit = true;
+          console.log("points: "+window.pointHolder);
 	    	}, 1000);
     	}
     });

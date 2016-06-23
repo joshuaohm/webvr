@@ -11,7 +11,6 @@ AFRAME.registerComponent('spawner', {
 
   spawn: function () {
 
-    console.log("can fire: "+window.canFire);
     if(window.canFire){
 
       window.canFire = false;
