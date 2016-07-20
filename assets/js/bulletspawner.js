@@ -1,4 +1,4 @@
-AFRAME.registerComponent('spawner', {
+AFRAME.registerComponent('bullet-spawner', {
   schema: {
     on: { default: 'click' },
     mixin: {default: '' }
@@ -19,6 +19,9 @@ AFRAME.registerComponent('spawner', {
       var position = new THREE.Vector3();
       var rotation = el.getAttribute('rotation');
       var entityRotation;
+
+      console.log(position);
+      console.log(rotation);
 
       position.setFromMatrixPosition(matrixWorld);
       var entity = document.createElement('a-entity');

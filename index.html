@@ -3,11 +3,12 @@
 	<title>Johm's Web VR crap</title>
 	<script src="assets/js/aframe.min.js"></script>
 	<script src="assets/js/aframe-extras.min.js"></script>
-	<script src="assets/js/spawnerstatic.js"></script>
+	<script src="assets/js/bulletspawner.js"></script>
 	<script src="assets/js/projectile.js"></script>
 	<script src="assets/js/click-listener.js"></script>
 	<script src="assets/js/hit-listener.js"></script>
 	<script src="assets/js/collider.js"></script>
+
 	<script type="text/javascript">var canFire = true; var canHit = true; var targets = []; var pointHolder = 0;</script>
 </head>
 <body>
@@ -19,6 +20,8 @@
 
 	</a-assets>
 
+	<!-- Scoreboard -->
+	<a-plane position="1, 2.1, -10" scale="3, 3, 3"  material="side: double shader: standard; side: double; metalness: 0.1; color:#FF0000;" />
 
 	<!-- Target -->
 		<a-entity class="target" id="one"  geometry="primitive: circle; radius:1" material="side: double shader: standard; side: double; metalness: 0.1; color:#FF0000;" position="1, 2.1, 0" rotation="25 0 0" hit-listener="pointValue: 1"></a-entity>
@@ -49,7 +52,7 @@
 		<a-camera id="camera" kinematic-body universal-controls jump-ability="enableDoubleJump: true; distance: 2.8;" 
                                              position="0 4 -8"
                                              rotation="0 180 0"
-                                             spawner="mixin: ball; on: click;" click-listener>
+                                             bullet-spawner="mixin: ball; on: click;" click-listener>
 	  	<a-entity id="cursor" cursor="maxDistance: 5;" geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01" material="color: #1a608f" position="0 0 -1" rotation="0 0 0">
 	  	</a-entity>
   	</a-camera>

@@ -17,7 +17,7 @@ AFRAME.registerComponent('collider', {
   },
 
   /**
-   * Check for collisions (for cylinder).
+   * Check for collisions
    */
   tick: function (t) {
     var collisionResults;
