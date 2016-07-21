@@ -20,9 +20,6 @@ AFRAME.registerComponent('bullet-spawner', {
       var rotation = el.getAttribute('rotation');
       var entityRotation;
 
-      console.log(position);
-      console.log(rotation);
-
       position.setFromMatrixPosition(matrixWorld);
       var entity = document.createElement('a-entity');
 

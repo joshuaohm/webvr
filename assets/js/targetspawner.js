@@ -16,9 +16,6 @@ AFRAME.registerComponent('target-spawner', {
     var rotation = el.getAttribute('rotation');
     var entityRotation;
 
-    console.log(position);
-    console.log(rotation);
-
     position.setFromMatrixPosition(matrixWorld);
     var entity = document.createElement('a-entity');
 
@@ -43,5 +40,5 @@ AFRAME.registerComponent('target-spawner', {
       el.sceneEl.removeChild(entity);
     }, 10000);
   }
-  
+
 });
